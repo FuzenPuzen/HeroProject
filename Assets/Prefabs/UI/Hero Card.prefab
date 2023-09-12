@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 92407918499753798}
-  - component: {fileID: 4593883078457775633}
+  - component: {fileID: 1367760919953349939}
   m_Layer: 5
   m_Name: Hero Card
   m_TagString: Untagged
@@ -113,7 +113,7 @@ RectTransform:
   m_AnchoredPosition: {x: 8.4, y: 118.14}
   m_SizeDelta: {x: 100, y: 41.72}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4593883078457775633
+--- !u!114 &1367760919953349939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,12 +122,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1900577230429156965}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e11e115231d3ddd40ba6709efdf31a0e, type: 3}
+  m_Script: {fileID: 11500000, guid: 40f9b3e13a62ee74381422a4cd2b13ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroesSC: {fileID: 11400000, guid: 25156689a86ddad44ba1bc307118789d, type: 2}
-  backgrowndIm: {fileID: 7460740297642615479}
-  heroIm: {fileID: 7526466400016273950}
+  _cardImg: {fileID: 7460740297642615479}
+  _heroImg: {fileID: 7526466400016273950}
 --- !u!1 &4920233318670770098
 GameObject:
   m_ObjectHideFlags: 0

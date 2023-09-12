@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8346608977409417039}
-  - component: {fileID: 1739927771190375934}
   m_Layer: 5
   m_Name: Offer Card
   m_TagString: Untagged
@@ -37,23 +36,6 @@ RectTransform:
   m_AnchoredPosition: {x: -21, y: 64.54}
   m_SizeDelta: {x: 440, y: 670}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1739927771190375934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984978725003749850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f0a855f5e8555a408280dba85835262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offerSC: {fileID: 11400000, guid: 242c16c4bcdcd7340a8bb1523f79ebc0, type: 2}
-  offerImg: {fileID: 1520479138106780831}
-  offerQuantity: {fileID: 2288259602383833557}
-  costImg: {fileID: 2823482322783178563}
-  costQuantity: {fileID: 638089470255210009}
 --- !u!1 &1172999861781239535
 GameObject:
   m_ObjectHideFlags: 0

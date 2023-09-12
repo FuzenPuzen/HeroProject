@@ -355,7 +355,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1842040893655731105}
-  - component: {fileID: 3946148384636745762}
   m_Layer: 5
   m_Name: Task Card
   m_TagString: Untagged
@@ -383,23 +382,6 @@ RectTransform:
   m_AnchoredPosition: {x: -41.68, y: 31.237}
   m_SizeDelta: {x: 450, y: 670}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3946148384636745762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3008399650048147009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5e2b9aee8c0b5e4591eaed7b35c9eaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  taskSC: {fileID: 11400000, guid: 636dfc133e9929e4d8924e1c800287d2, type: 2}
-  backgrownd: {fileID: 5162583321523878440}
-  taskText: {fileID: 8336049918045888167}
-  rewardCount: {fileID: 5394889632173766149}
-  progressText: {fileID: 7393695837132161126}
 --- !u!1 &3448036323971469165
 GameObject:
   m_ObjectHideFlags: 0
