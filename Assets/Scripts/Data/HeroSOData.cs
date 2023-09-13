@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeroSOData : MonoBehaviour
+[CreateAssetMenu]
+public class HeroSOData : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private int _id;
+    [SerializeField] private string _heroName;
+    [SerializeField] private List<Sprite> _heroSprite = new List<Sprite>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int Id { get => _id;}
+    public string Name { get => _heroName;}
+
+    public List<Sprite> HeroSprite { get => _heroSprite; }
 }

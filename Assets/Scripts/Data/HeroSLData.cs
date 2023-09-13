@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class HeroSLData : MonoBehaviour
+public class HeroSLData
 {
-    // Start is called before the first frame update
-    void Start()
+    private int _id;
+    private int _level;
+    private bool _isOpened;
+    private bool _isSquaded;
+
+    public HeroSLData(int id)
     {
-        
+        _id = id;
+        _level = 0;
+        _isOpened = false;
+        _isSquaded = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int Level { get => _level; set => _level = value; }
+    public bool IsOpened { get => _isOpened; set => _isOpened = value; }
+    public bool IsSquaded { get => _isSquaded; set => _isSquaded = value; }
+    public int Id { get => _id;}
 }

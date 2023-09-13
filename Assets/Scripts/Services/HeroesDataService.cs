@@ -17,6 +17,12 @@ public class HeroesDataService
         List<HeroSLData> heroesSLData = new List<HeroSLData>();
         heroesSLData = heroesSLDataService.GetHeroesSLData();
 
+        FillHeroesData(heroesSOData, heroesSLData);
+    }
+
+    // Наполнение heroData 
+    private void FillHeroesData(List<HeroSOData> heroesSOData, List<HeroSLData> heroesSLData)
+    {
         for (int i = 0; i < heroesSOData.Count; i++)
         {
             heroesData.Add(new HeroData(heroesSOData[i], heroesSLData[i]));

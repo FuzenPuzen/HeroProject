@@ -3,14 +3,11 @@ using Zenject;
 
 public class GameInstaller : MonoInstaller
 {
-    private DiContainer _container = new DiContainer();
-
-
     public override void InstallBindings()
     {
-        _container.Bind<HeroesDataService>().AsSingle();
-        _container.Bind<HeroesSODataService>().AsSingle();
-        _container.Bind<HeroesSLDataService>().AsSingle();
-
+        //_container.Bind<DiContainer>().FromInstance(_container).AsSingle();
+        Container.Bind<HeroesDataService>().AsSingle();
+        Container.Bind<HeroesSODataService>().AsSingle();
+        Container.Bind<HeroesSLDataService>().AsSingle();
     }
 }

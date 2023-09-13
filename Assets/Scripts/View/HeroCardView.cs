@@ -12,10 +12,8 @@ public class HeroCardView : MonoBehaviour
     public void Init(HeroData heroData)
     {
         gameObject.SetActive(false);
-        if (heroData.IsOpened)
-        {
-            gameObject.SetActive(true);
-        }
+        if (!heroData.HeroSLData.IsOpened) return;
+        gameObject.SetActive(true);
     }
 
 

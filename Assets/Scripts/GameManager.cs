@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+using Zenject;
 
 public class GameManager : MonoBehaviour
 {
-
     public HeroPanelService heroPanelService = null;
 
-    // Start is called before the first frame update
     void Start()
     {
-        //heroPanelService = new HeroPanelService();
+        
     }
 
-
+    [Inject]
+    public void exuct(HeroesSLDataService heroesSLDataService)
+    {
+        Debug.Log(heroesSLDataService.GetHeroesSLData());
+    }
 }
