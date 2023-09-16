@@ -1,12 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
+[Serializable]
 public class HeroSLData
 {
-    private int _id;
-    private int _level;
-    private bool _isOpened;
-    private bool _isSquaded;
+    [SerializeField] private int _id;
+    [SerializeField] private int _level;
+    [SerializeField] private bool _isOpened;
+    [SerializeField] private bool _isSquaded;
 
     public HeroSLData(int id)
     {

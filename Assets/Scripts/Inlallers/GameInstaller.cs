@@ -5,9 +5,15 @@ public class GameInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {
-        //_container.Bind<DiContainer>().FromInstance(_container).AsSingle();
-        Container.Bind<HeroesDataService>().AsSingle();
         Container.Bind<HeroesSODataService>().AsSingle();
         Container.Bind<HeroesSLDataService>().AsSingle();
+
+        Container.Bind<HeroesDataService>().AsSingle();
+        Container.Bind<HeroesPanelService>().AsSingle();
+
+        Container.Bind<JewelryData>().AsSingle();
+        Container.Bind<JewelryDataService>().AsSingle();
+
+        Container.Bind<HeroSummonService>().AsSingle();
     }
 }

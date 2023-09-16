@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HeroData : MonoBehaviour
-{
+public class HeroData
+{ 
     private HeroSOData _heroSOData;
     private HeroSLData _heroSLData;
 

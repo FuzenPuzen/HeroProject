@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using Zenject;
 
@@ -25,13 +26,31 @@ public class HeroesDataService
     {
         for (int i = 0; i < heroesSOData.Count; i++)
         {
-            heroesData.Add(new HeroData(heroesSOData[i], heroesSLData[i]));
+            HeroData herodata = new HeroData(heroesSOData[i], heroesSLData[i]);
+            heroesData.Add(herodata);
         }
     }
 
     public List<HeroData> GetHeroessData()
     {
         return heroesData;
+    }
+
+    public List<HeroData> GetClosedHeroList()
+    {
+        List<HeroData> closedHeroList = new List<HeroData>();
+        foreach (HeroData hero in heroesData)
+            if (!hero.HeroSLData.IsOpened)
+            {
+                closedHeroList.Add(hero);
+            }
+                
+        return closedHeroList;
+    }
+
+    public void OpenHero(int heroid)
+    {
+       heroesData[heroid].HeroSLData.IsOpened = true;
     }
 
 }

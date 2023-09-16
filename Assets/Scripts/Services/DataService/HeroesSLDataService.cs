@@ -1,24 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
 
-public interface IHeroesSLDataService
-{
-    List<HeroSLData> GetHeroesSLData();
-}
 
-public class HeroesSLDataService : IHeroesSLDataService
-{
-    private string _heroDataKey = "heroDataKey";
-    private List<HeroSLData> _heroesSLData = new List<HeroSLData>();
-    private int _heroCount;
+
+public class HeroesSLDataService
+{ 
     private HeroesSODataService _heroesSODataService;
+    private string _heroDataKey = "heroDataKey";
+    [SerializeField] private List<HeroSLData> _heroesSLData = new List<HeroSLData>();
+    private int _heroCount;
 
     [Inject]
     public HeroesSLDataService(HeroesSODataService heroesSODataService)
     {
-        _heroesSODataService = heroesSODataService;     
+        _heroesSODataService = heroesSODataService;
         if (!PlayerPrefs.HasKey(_heroDataKey))
         {
             CreateHeroSLData();
@@ -36,21 +36,23 @@ public class HeroesSLDataService : IHeroesSLDataService
         for (int i = 0; i < _heroCount; i++)
         {
             _heroesSLData.Add(new HeroSLData(i));
+            if (i % 2 == 0)
+            {
+                _heroesSLData[i].IsOpened = true;
+            }
         }
     }
 
     private void LoadHeroSLData()
     {
         string json = PlayerPrefs.GetString(_heroDataKey, "");
-        // Десериализуем JSON в список
         _heroesSLData = JsonUtility.FromJson<List<HeroSLData>>(json);
     }
 
     private void SaveHeroSLData()
     {
         string json = JsonUtility.ToJson(_heroesSLData);
-        // Сохраняем JSON в PlayerPrefs
-        PlayerPrefs.SetString("PlayerData", json);
+        PlayerPrefs.SetString(_heroDataKey, json);
         PlayerPrefs.Save();
     }
 
