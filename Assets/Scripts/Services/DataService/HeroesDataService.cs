@@ -8,6 +8,7 @@ public class HeroesDataService
 {
 
     private List<HeroData> heroesData = new List<HeroData>();
+    private HeroesSLDataService _heroesSLDataService;
 
     [Inject]
     public HeroesDataService(HeroesSODataService heroesSODataService, HeroesSLDataService heroesSLDataService)
@@ -15,6 +16,7 @@ public class HeroesDataService
         List<HeroSOData> heroesSOData = new List<HeroSOData>();
         heroesSOData = heroesSODataService.GetHeroesSOData();
 
+        _heroesSLDataService = heroesSLDataService;
         List<HeroSLData> heroesSLData = new List<HeroSLData>();
         heroesSLData = heroesSLDataService.GetHeroesSLData();
 
@@ -51,6 +53,7 @@ public class HeroesDataService
     public void OpenHero(int heroid)
     {
        heroesData[heroid].HeroSLData.IsOpened = true;
+        _heroesSLDataService.SaveHeroSLData();
     }
 
 }

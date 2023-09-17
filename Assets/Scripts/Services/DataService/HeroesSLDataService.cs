@@ -5,14 +5,13 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
-
-
+using Newtonsoft.Json;
 
 public class HeroesSLDataService
 { 
     private HeroesSODataService _heroesSODataService;
     private string _heroDataKey = "heroDataKey";
-    [SerializeField] private List<HeroSLData> _heroesSLData = new List<HeroSLData>();
+    [Serialize] private List<HeroSLData> _heroesSLData = new List<HeroSLData>();
     private int _heroCount;
 
     [Inject]
@@ -33,6 +32,7 @@ public class HeroesSLDataService
     private void CreateHeroSLData()
     {
         _heroCount = _heroesSODataService.GetHeroesSOCount();
+        Debug.Log("Create: " + _heroCount);
         for (int i = 0; i < _heroCount; i++)
         {
             _heroesSLData.Add(new HeroSLData(i));
@@ -46,12 +46,14 @@ public class HeroesSLDataService
     private void LoadHeroSLData()
     {
         string json = PlayerPrefs.GetString(_heroDataKey, "");
-        _heroesSLData = JsonUtility.FromJson<List<HeroSLData>>(json);
+        _heroesSLData = JsonConvert.DeserializeObject<List<HeroSLData>>(json);
+        Debug.Log("Load: " + json);
     }
 
-    private void SaveHeroSLData()
+    public void SaveHeroSLData()
     {
-        string json = JsonUtility.ToJson(_heroesSLData);
+        string json = JsonConvert.SerializeObject(_heroesSLData);
+        Debug.Log("Save: " + json + " " + _heroesSLData.Count);
         PlayerPrefs.SetString(_heroDataKey, json);
         PlayerPrefs.Save();
     }

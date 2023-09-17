@@ -10,11 +10,15 @@ public class HeroSummonService
     private HeroesDataService _heroesDataService;
     private HeroesPanelService _heroesPanelService;
     private JewelryDataService _jewelryDataService;
+    private HeroSummonView heroSummonView;
 
     [Inject]
     public HeroSummonService(HeroesDataService heroesDataService, HeroesPanelService heroesPanelService, JewelryDataService jewelryDataService)
     {
+        heroSummonView = MonoBehaviour.FindObjectOfType<HeroSummonView>();
+        heroSummonView.Init(this);
         _heroesDataService = heroesDataService;
+        //вот тут heroesPanelService не должно быть
         _heroesPanelService = heroesPanelService;
         _jewelryDataService = jewelryDataService;
     }
@@ -30,6 +34,7 @@ public class HeroSummonService
                 HeroData summonedHero = _closedHerolist[randomindex];
                 _heroesDataService.OpenHero(_closedHerolist[randomindex].HeroSOData.Id);
                 Debug.Log(summonedHero.HeroSOData.name);
+                // вот тут исправить через ивент
                 _heroesPanelService.UpdateHeroCards();
             }
         }

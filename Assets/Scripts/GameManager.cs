@@ -12,15 +12,15 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();
-        heroesPanelService = container.Resolve<HeroesPanelService>();
-        _jewelryDataService = container.Resolve<JewelryDataService>();
-        _jewelryDataService.AddDiamonds(20);
-        _jewelryDataService.AddDollars(300);
-        _jewelryDataService.AddScrolls(12);
+        /*PlayerPrefs.DeleteAll();
+         PlayerPrefs.Save();*/
 
+         /*heroesPanelService = container.Resolve<HeroesPanelService>();
+         _jewelryDataService = container.Resolve<JewelryDataService>();*/
         _heroSummonService = container.Resolve<HeroSummonService>();
+       
+        
+
     }
 
 }

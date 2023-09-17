@@ -15,7 +15,6 @@ public class HeroSummonView : MonoBehaviour, IPointerClickHandler
 
     }
 
-    [Inject]
     public void Init(HeroSummonService heroSummonService)
     {
         _heroSummonService = heroSummonService;

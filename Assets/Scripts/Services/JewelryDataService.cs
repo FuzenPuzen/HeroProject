@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+using Newtonsoft.Json;
 
 public class JewelryDataService
 {
-    [Inject] private JewelryData _jewelryData;
-    private JewerlyPanelView _jewerlyDataView;
+    private JewelryData _jewelryData;
+    private JewerlyPanelView _jewerlyPanelView;
     private string _jewelryDataKey = "jewelryDataKey";
 
     public bool SpendDiamonds(int cost)
@@ -14,16 +15,17 @@ public class JewelryDataService
         if (_jewelryData.DiamondsCount >= cost)
         {
             _jewelryData.DiamondsCount -= cost;
-            _jewerlyDataView.UpdateView(_jewelryData);
+            _jewerlyPanelView.UpdateView(_jewelryData);
+            SaveJewerlyData();
             return true;
         }
         return false;
-
     }
     public void AddDiamonds(int cost)
     {
         _jewelryData.DiamondsCount += cost;
-        _jewerlyDataView.UpdateView(_jewelryData);
+        _jewerlyPanelView.UpdateView(_jewelryData);
+        SaveJewerlyData();
     }
 
     public bool SpendDollars(int cost)
@@ -31,7 +33,8 @@ public class JewelryDataService
         if (_jewelryData.DollarsCount >= cost)
         {
             _jewelryData.DollarsCount -= cost;
-            _jewerlyDataView.UpdateView(_jewelryData);
+            _jewerlyPanelView.UpdateView(_jewelryData);
+            SaveJewerlyData();
             return true;
         }
         return false;
@@ -39,7 +42,8 @@ public class JewelryDataService
     public void AddDollars(int cost)
     {
         _jewelryData.DollarsCount += cost;
-        _jewerlyDataView.UpdateView(_jewelryData);
+        _jewerlyPanelView.UpdateView(_jewelryData);
+        SaveJewerlyData();
     }
 
     public bool SpendScrolls(int cost)
@@ -47,51 +51,51 @@ public class JewelryDataService
         if (_jewelryData.ScrollsCount >= cost)
         {
             _jewelryData.ScrollsCount -= cost;
-            _jewerlyDataView.UpdateView(_jewelryData);
+            _jewerlyPanelView.UpdateView(_jewelryData);
+            SaveJewerlyData();
             return true;
         }
+        Debug.Log("Свитков больше нет!!");       
         return false;
     }
     public void AddScrolls(int cost)
     {
         _jewelryData.ScrollsCount += cost;
-        _jewerlyDataView.UpdateView(_jewelryData);
+        _jewerlyPanelView.UpdateView(_jewelryData);
+        SaveJewerlyData();
     }
 
-    
+
     public JewelryDataService()
     {
-        _jewerlyDataView = MonoBehaviour.FindObjectOfType<JewerlyPanelView>();
+        _jewerlyPanelView = MonoBehaviour.FindObjectOfType<JewerlyPanelView>();
 
-        if (!PlayerPrefs.HasKey(_jewelryDataKey))
+        if (PlayerPrefs.HasKey(_jewelryDataKey))
+        {
+            LoadJewerlyData();
+        }
+        else
         {
             CreateJewerlyData();
             SaveJewerlyData();
         }
-        else
-        {
-            LoadJewerlyData();
-        }
-        _jewerlyDataView.UpdateView(_jewelryData);
+        _jewerlyPanelView.UpdateView(_jewelryData);
     }
 
     public void CreateJewerlyData()
     {
         _jewelryData = new JewelryData();
-        _jewelryData.DiamondsCount = 0;
-        _jewelryData.DollarsCount = 0;
-        _jewelryData.ScrollsCount = 0;
     }
 
     public void LoadJewerlyData()
     {
         string json = PlayerPrefs.GetString(_jewelryDataKey, "");
-        _jewelryData = JsonUtility.FromJson<JewelryData>(json);
+        _jewelryData = JsonConvert.DeserializeObject<JewelryData>(json);
     }
 
     public void SaveJewerlyData()
     {
-        string json = JsonUtility.ToJson(_jewelryData);
+        string json = JsonConvert.SerializeObject(_jewelryData);
         PlayerPrefs.SetString(_jewelryDataKey, json);
         PlayerPrefs.Save();
     }
