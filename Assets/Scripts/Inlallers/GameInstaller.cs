@@ -14,5 +14,17 @@ public class GameInstaller : MonoInstaller
         Container.Bind<JewelryDataService>().AsSingle();
 
         Container.Bind<HeroSummonService>().AsSingle();
+
+        Container.Bind<MenuStateMachine>().AsSingle();
+
+        Container.Bind<MenuStartState>().AsSingle();
+        Container.Bind<HeroesState>().AsSingle();
+        Container.Bind<RaidState>().AsSingle();
+        Container.Bind<ShopState>().AsSingle();
+
+        Container.Bind<NavigationPagesService>().AsSingle();
+        Container.Bind<RaidPageService>().AsSingle();
+        Container.Bind<HeroPageService>().AsSingle();
+        Container.Bind<ShopPageService>().AsSingle();
     }
 }
