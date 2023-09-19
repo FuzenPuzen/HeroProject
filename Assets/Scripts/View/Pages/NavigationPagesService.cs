@@ -10,10 +10,6 @@ public class NavigationPagesService
     private RaidState _raidState;
     private ShopState _shopState;
 
-    public void Init()
-    {
-        MonoBehaviour.print("NavigationPagesService Init");
-    }
 
     [Inject]
     public NavigationPagesService

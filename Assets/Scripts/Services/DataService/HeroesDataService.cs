@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -6,7 +7,7 @@ using Zenject;
 
 public class HeroesDataService
 {
-
+    public event Action HeroChanged;
     private List<HeroData> heroesData = new List<HeroData>();
     private HeroesSLDataService _heroesSLDataService;
 
@@ -53,7 +54,8 @@ public class HeroesDataService
     public void OpenHero(int heroid)
     {
        heroesData[heroid].HeroSLData.IsOpened = true;
-        _heroesSLDataService.SaveHeroSLData();
+       _heroesSLDataService.SaveHeroSLData();
+        HeroChanged?.Invoke();
     }
 
 }

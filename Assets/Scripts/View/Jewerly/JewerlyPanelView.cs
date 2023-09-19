@@ -7,8 +7,8 @@ public class JewerlyPanelView : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _dollarsText;
     [SerializeField] private TextMeshProUGUI _diamondsText;
-    [SerializeField] private TextMeshProUGUI _scrollsText;
-    
+    [SerializeField] private TextMeshProUGUI _scrollsText;   
+
     public void UpdateView(JewelryData jewelryData)
     {
         _dollarsText.text = jewelryData.DollarsCount.ToString();

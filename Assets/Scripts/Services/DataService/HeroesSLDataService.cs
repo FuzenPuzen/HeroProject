@@ -32,13 +32,13 @@ public class HeroesSLDataService
     private void CreateHeroSLData()
     {
         _heroCount = _heroesSODataService.GetHeroesSOCount();
-        Debug.Log("Create: " + _heroCount);
         for (int i = 0; i < _heroCount; i++)
         {
             _heroesSLData.Add(new HeroSLData(i));
             if (i % 2 == 0)
             {
-                _heroesSLData[i].IsOpened = true;
+                
+                _heroesSLData[i].IsOpened = false;
             }
         }
     }
@@ -47,13 +47,11 @@ public class HeroesSLDataService
     {
         string json = PlayerPrefs.GetString(_heroDataKey, "");
         _heroesSLData = JsonConvert.DeserializeObject<List<HeroSLData>>(json);
-        Debug.Log("Load: " + json);
     }
 
     public void SaveHeroSLData()
     {
         string json = JsonConvert.SerializeObject(_heroesSLData);
-        Debug.Log("Save: " + json + " " + _heroesSLData.Count);
         PlayerPrefs.SetString(_heroDataKey, json);
         PlayerPrefs.Save();
     }

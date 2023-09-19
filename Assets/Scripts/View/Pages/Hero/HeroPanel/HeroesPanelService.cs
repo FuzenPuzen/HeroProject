@@ -20,6 +20,7 @@ public class HeroesPanelService
         _heroCardViews = new List<HeroCardView>();
         _heroCardViews = _heroPanelView.GetHeroCardViews();
         _heroesData = heroesDataService.GetHeroessData();
+        heroesDataService.HeroChanged += UpdateHeroCards;
         CreateCards();
     }
 
@@ -34,8 +35,8 @@ public class HeroesPanelService
 
     public void UpdateHeroCards()
     {
-        foreach(HeroCardService Card in _heroCardServices)
-            Card.UpdateCardView();
+        foreach(HeroCardService heroCardService in _heroCardServices)
+            heroCardService.UpdateCardView();
     }
 
 }

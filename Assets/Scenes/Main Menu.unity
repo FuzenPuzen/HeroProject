@@ -4000,7 +4000,7 @@ GameObject:
   - component: {fileID: 515675682}
   - component: {fileID: 515675684}
   m_Layer: 5
-  m_Name: Task Panel
+  m_Name: Task Page
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12638,7 +12638,7 @@ GameObject:
   - component: {fileID: 1527264326}
   - component: {fileID: 1527264325}
   m_Layer: 5
-  m_Name: Raid Panel
+  m_Name: Raid Page
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19221,7 +19221,7 @@ GameObject:
   - component: {fileID: 8349292633732862656}
   - component: {fileID: 8349292633732862657}
   m_Layer: 5
-  m_Name: Shop Panel
+  m_Name: Shop Page
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

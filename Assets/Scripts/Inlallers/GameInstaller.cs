@@ -12,6 +12,7 @@ public class GameInstaller : MonoInstaller
         Container.Bind<HeroesPanelService>().AsSingle();
 
         Container.Bind<JewelryDataService>().AsSingle();
+        Container.Bind<JewerlyPanelService>().AsSingle();
 
         Container.Bind<HeroSummonService>().AsSingle();
 

@@ -5,17 +5,28 @@ public class MenuStartState : IBaseGameState
     private MenuStateMachine _menuStateMachine;
     private HeroesState _heroesState;
     private NavigationPagesService _navigationPagesService;
+    private JewelryDataService _jewelryDataService;
+    private JewerlyPanelService _jewerlyPanelService;
 
     [Inject]
-    public MenuStartState(MenuStateMachine menuStateMachine, NavigationPagesService navigationPagesService, HeroesState heroesState)
+    public MenuStartState
+    (
+        MenuStateMachine menuStateMachine, 
+        NavigationPagesService navigationPagesService, 
+        HeroesState heroesState,
+        JewelryDataService jewelryDataService,
+        JewerlyPanelService jewerlyPanelService
+    )
     {
+        _jewelryDataService = jewelryDataService;
+        _jewerlyPanelService = jewerlyPanelService;
         _heroesState = heroesState;
         _menuStateMachine = menuStateMachine;
         _navigationPagesService = navigationPagesService;
     }
+
     public void Enter()
     {
-        _navigationPagesService.Init();
         _menuStateMachine.SetState(_heroesState);
     }
 
