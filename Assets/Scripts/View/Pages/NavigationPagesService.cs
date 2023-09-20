@@ -5,7 +5,7 @@ using Zenject;
 public class NavigationPagesService
 {
     private NavigationPagesView _navigationPagesView;
-    private MenuStateMachine _menuStateMachine;
+    private StateMachine _menuStateMachine;
     private HeroesState _heroesState;
     private RaidState _raidState;
     private ShopState _shopState;
@@ -14,7 +14,7 @@ public class NavigationPagesService
     [Inject]
     public NavigationPagesService
     (
-        MenuStateMachine menuStateMachine,
+        StateMachine menuStateMachine,
         HeroesState heroesState, 
         RaidState raidState,
         ShopState shopState

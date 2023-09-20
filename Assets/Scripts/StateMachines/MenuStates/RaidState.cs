@@ -5,11 +5,11 @@ using Zenject;
 
 public class RaidState : IBaseGameState
 {
-    private MenuStateMachine _menuStateMachine;
+    private StateMachine _menuStateMachine;
     private RaidPageService _raidPageService;
 
     [Inject]
-    private RaidState(MenuStateMachine menuStateMachine, RaidPageService raidPageService)
+    private RaidState(StateMachine menuStateMachine, RaidPageService raidPageService)
     {
         _menuStateMachine = menuStateMachine;
         _raidPageService = raidPageService;

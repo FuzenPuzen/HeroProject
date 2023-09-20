@@ -2,7 +2,7 @@ using Zenject;
 
 public class HeroesState : IBaseGameState
 {
-    private MenuStateMachine _menuStateMachine;
+    private StateMachine _menuStateMachine;
     private HeroPageService _heroPageService;
     private HeroSummonService _heroSummonService;
     private HeroesPanelService _heroPanelService;
@@ -10,7 +10,7 @@ public class HeroesState : IBaseGameState
     [Inject]
     private HeroesState
     (
-        MenuStateMachine menuStateMachine, 
+        StateMachine menuStateMachine, 
         HeroPageService heroPageService, 
         HeroSummonService heroSummonService,
         HeroesPanelService heroesPanelService

@@ -15,6 +15,16 @@ public interface IServiceState : IGameState
     
 }
 
+public interface IFormationGameState : IGameState
+{
+    void EnterFormationState();
+}
+
+public interface IBattleGameState : IGameState
+{
+    void EnterBattleState();
+}
+
 public interface IViewState
 {
     void Enter();

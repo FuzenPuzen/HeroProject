@@ -2,7 +2,7 @@ using Zenject;
 
 public class MenuStartState : IBaseGameState
 {
-    private MenuStateMachine _menuStateMachine;
+    private StateMachine _menuStateMachine;
     private HeroesState _heroesState;
     private NavigationPagesService _navigationPagesService;
     private JewelryDataService _jewelryDataService;
@@ -11,7 +11,7 @@ public class MenuStartState : IBaseGameState
     [Inject]
     public MenuStartState
     (
-        MenuStateMachine menuStateMachine, 
+        StateMachine menuStateMachine, 
         NavigationPagesService navigationPagesService, 
         HeroesState heroesState,
         JewelryDataService jewelryDataService,

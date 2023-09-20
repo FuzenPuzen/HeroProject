@@ -2,11 +2,11 @@
 
 public class ShopState : IBaseGameState
 {
-    private MenuStateMachine _menuStateMachine;
+    private StateMachine _menuStateMachine;
     private ShopPageService _shopPageService;
 
     [Inject]
-    private ShopState(MenuStateMachine menuStateMachine, ShopPageService shopPageService)
+    private ShopState(StateMachine menuStateMachine, ShopPageService shopPageService)
     {
         _menuStateMachine = menuStateMachine;
         _shopPageService = shopPageService;
