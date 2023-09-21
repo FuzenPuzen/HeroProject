@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Hero SO 4
   m_EditorClassIdentifier: 
   _id: 4
-  _heroName: Hero 4
+  _heroName: 
   _heroSprite: []

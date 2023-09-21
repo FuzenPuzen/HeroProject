@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f99a4cbb22086349b5ce154f52e3007, type: 3}
-  m_Name: Hero SO 6
+  m_Script: {fileID: 11500000, guid: de9ec584beab16c49bcf7f179c0a2226, type: 3}
+  m_Name: Enemy SO 1
   m_EditorClassIdentifier: 
-  _id: 6
-  _heroName: 
-  _heroSprite: []
+  _id: 1
+  _name: Enemy 1
+  _hp: 50
+  _speed: 1

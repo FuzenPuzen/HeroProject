@@ -6,11 +6,10 @@ using UnityEngine;
 using Zenject;
 
 public class HeroUnitFabric 
-{   
-    public List<GameObject> HeroesPb = new List<GameObject>();
-    private GameObject hero;
+{
+    private List<HeroUnitView> HeroesPb = new List<HeroUnitView>();
+    private HeroUnitView hero;
 
-    [Inject]
     public HeroUnitFabric()
     {       
         LoadHeroesPb();
@@ -18,18 +17,18 @@ public class HeroUnitFabric
 
     public void LoadHeroesPb()
     {
-        HeroesPb.AddRange(Resources.LoadAll("Hero/HeroesPb", typeof(GameObject)));
+        HeroesPb.AddRange(Resources.LoadAll("Hero/HeroesPb", typeof(HeroUnitView)));
         SortPb();
     }
 
     public void SortPb()
     {
-        HeroesPb = HeroesPb.OrderBy(GameObject => GameObject.GetComponent<HeroUnitView>().id).ToList();
+        HeroesPb = HeroesPb.OrderBy(HeroUnitView => HeroUnitView.Id).ToList();
     }
 
     public HeroUnitService CreateHero(HeroData heroData)
     {
         hero = MonoBehaviour.Instantiate(HeroesPb[heroData.HeroSLData.Id], Vector3.zero, Quaternion.identity);
-        return new HeroUnitService(hero.GetComponent<HeroUnitView>());
+        return new HeroUnitService(hero);
     }
 }

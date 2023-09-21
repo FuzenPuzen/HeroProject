@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class HeroUnitView : MonoBehaviour
 {
-    public int id;
+    [SerializeField] private int id;
+
+    public int Id { get => id; set => id = value; }
 
     public void MoveToTarget(GameObject target)
     {

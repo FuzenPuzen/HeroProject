@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class EnemyUnitService : MonoBehaviour
+public class EnemyUnitService 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
+    private EnemyUnitView _enemyUnitView;
 
-    // Update is called once per frame
-    void Update()
+    public EnemyUnitService(EnemyUnitView enemyUnitView)
     {
-        
+        _enemyUnitView = enemyUnitView;
     }
 }

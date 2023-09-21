@@ -10,6 +10,9 @@ public class SessionInstaller : MonoInstaller
         Container.Bind<HeroUnitFabric>().AsSingle();
         Container.Bind<HeroUnitSquadService>().AsSingle();
 
+        Container.Bind<EnemyUnitFabric>().AsSingle();
+        Container.Bind<EnemyUnitSquadService>().AsSingle();
+
         Container.Bind<StateMachine>().AsSingle();
         Container.Bind<StartSessionState>().AsSingle();
         Container.Bind<BattleState>().AsSingle();

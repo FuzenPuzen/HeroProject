@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 public class HeroUnitSquadService : IServiceState, IFormationGameState, IBattleGameState
 {
@@ -12,6 +13,7 @@ public class HeroUnitSquadService : IServiceState, IFormationGameState, IBattleG
     private List<HeroUnitService> _heroUnitSquad = new List<HeroUnitService>();
     private List<HeroData> _heroSquad = new List<HeroData>();
 
+    [Inject]
     public HeroUnitSquadService(HeroesDataService heroesDataService, HeroUnitFabric heroUnitFabric)
     {
         _heroesDataService = heroesDataService;

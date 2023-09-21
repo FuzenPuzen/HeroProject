@@ -22,11 +22,6 @@ public class HeroesDataService
         heroesSLData = heroesSLDataService.GetHeroesSLData();
 
         FillHeroesData(heroesSOData, heroesSLData);
-        PutHeroInSquad(0);
-        PutHeroInSquad(2);
-        PutHeroInSquad(5);
-        PutHeroInSquad(7);
-            
     }
 
     // Наполнение heroData 

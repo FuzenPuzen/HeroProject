@@ -11,6 +11,8 @@ public class DataInstaller : MonoInstaller
         Container.Bind<HeroesSLDataService>().AsSingle();
         Container.Bind<HeroesDataService>().AsSingle();
 
+        Container.Bind<EnemySODataService>().AsSingle();
+
         Container.Bind<JewelryDataService>().AsSingle(); 
     }
 }
