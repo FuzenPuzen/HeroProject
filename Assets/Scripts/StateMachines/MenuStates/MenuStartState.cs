@@ -3,7 +3,6 @@ using Zenject;
 public class MenuStartState : IBaseGameState
 {
     private StateMachine _menuStateMachine;
-    private HeroesState _heroesState;
     private NavigationPagesService _navigationPagesService;
     private JewelryDataService _jewelryDataService;
     private JewerlyPanelService _jewerlyPanelService;
@@ -12,22 +11,20 @@ public class MenuStartState : IBaseGameState
     public MenuStartState
     (
         StateMachine menuStateMachine, 
-        NavigationPagesService navigationPagesService, 
-        HeroesState heroesState,
         JewelryDataService jewelryDataService,
-        JewerlyPanelService jewerlyPanelService
+        JewerlyPanelService jewerlyPanelService,
+        NavigationPagesService navigationPagesService
     )
     {
         _jewelryDataService = jewelryDataService;
         _jewerlyPanelService = jewerlyPanelService;
-        _heroesState = heroesState;
         _menuStateMachine = menuStateMachine;
         _navigationPagesService = navigationPagesService;
     }
 
     public void Enter()
     {
-        _menuStateMachine.SetState(_heroesState);
+        _navigationPagesService.SetStartPageInstruction(ChangePage);
     }
 
     public void Exit()
@@ -38,5 +35,10 @@ public class MenuStartState : IBaseGameState
     public void Update()
     {
         throw new System.NotImplementedException();
+    }
+
+    public void ChangePage(IBaseGameState currentstate)
+    {
+        _menuStateMachine.SetState(currentstate);
     }
 }

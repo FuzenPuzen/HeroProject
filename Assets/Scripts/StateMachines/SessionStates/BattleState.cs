@@ -17,7 +17,7 @@ public class BattleState : IBaseGameState
 
     public void Enter()
     {
-        _heroUnitSquadService.EnterBattleState();
+
     }
 
     public void Exit()

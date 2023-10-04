@@ -5,42 +5,49 @@ using Zenject;
 public class NavigationPagesService
 {
     private NavigationPagesView _navigationPagesView;
-    private StateMachine _menuStateMachine;
-    private HeroesState _heroesState;
-    private RaidState _raidState;
-    private ShopState _shopState;
 
+    [Inject] private HeroesState _heroesState;
+    [Inject] private RaidState _raidState;
+    [Inject] private ShopState _shopState;
 
-    [Inject]
-    public NavigationPagesService
-    (
-        StateMachine menuStateMachine,
-        HeroesState heroesState, 
-        RaidState raidState,
-        ShopState shopState
-    )
+    private Action<IBaseGameState> _changePage;
+
+    
+    public NavigationPagesService()
     {
-        
-        _menuStateMachine = menuStateMachine;
-        _shopState = shopState;
-        _heroesState = heroesState;
-        _raidState = raidState;
+
+    }
+
+    public void ActivateService()
+    {
         _navigationPagesView = MonoBehaviour.FindObjectOfType<NavigationPagesView>();
         _navigationPagesView.Init(this);
+        Debug.Log(_heroesState);
+    }
+  
+    public void SetChangePageInstruction(Action<IBaseGameState> changePage)
+    {
+        _changePage = changePage;
     }
 
     public void OpenHeroesPage()
     {
-        _menuStateMachine.SetState(_heroesState);
+        Debug.Log(_heroesState);
+        _changePage?.Invoke(_heroesState);
     }
 
     public void OpenRaidPage()
     {
-        _menuStateMachine.SetState(_raidState);
+        _changePage?.Invoke(_raidState);
     }
 
     internal void OpenShopPage()
     {
-        _menuStateMachine.SetState(_shopState);
+        _changePage?.Invoke(_shopState);
+    }
+
+    internal void SetStartPageInstruction(Action<IBaseGameState> changePage)
+    {
+        changePage?.Invoke(_heroesState);
     }
 }

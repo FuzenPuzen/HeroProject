@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Zenject;
 
-public class EnemyUnitSquadService : IServiceState, IFormationGameState, IBattleGameState
+public class EnemyUnitSquadService : IService
 {
     private EnemySODataService _enemySODataService;
     private EnemyUnitFabric _enemyUnitFabric;
@@ -19,37 +19,32 @@ public class EnemyUnitSquadService : IServiceState, IFormationGameState, IBattle
         _enemyUnitFabric = enemyUnitFabric;
     }
 
-    public void Enter()
+    public void FormationStateIstruction()
     {
-
+        FillSquad();
     }
 
-    public void Exit()
+    public void ActivateService()
     {
-        Debug.Log("Exit State");
-    }
-    public void Update()
-    {
-
+        
     }
 
-    public void SpawnSquad()
+    public void DeactivateService()
+    {
+       
+    }
+
+    public void UpdateService()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void FillSquad()
     {
         _enemySquad = _enemySquad.Any() ? _enemySquad : _enemySODataService.GetEnemySquad();
         foreach (EnemySOData enemy in _enemySquad)
         {
             _enemyUnitSquad.Add(_enemyUnitFabric.CreateEnemy(enemy));
         }
-    }
-
-    public void EnterFormationState()
-    {
-        SpawnSquad();
-        Debug.Log("EnemyEnterFormationState");
-    }
-
-    public void EnterBattleState()
-    {
-        Debug.Log("EnemyEnterBattleState");
     }
 }

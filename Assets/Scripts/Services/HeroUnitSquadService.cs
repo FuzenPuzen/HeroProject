@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Zenject;
 
-public class HeroUnitSquadService : IServiceState, IFormationGameState, IBattleGameState
+public class HeroUnitSquadService : IService
 {
     private HeroesDataService _heroesDataService;
     private HeroUnitFabric _heroUnitFabric;
@@ -20,18 +20,24 @@ public class HeroUnitSquadService : IServiceState, IFormationGameState, IBattleG
         _heroUnitFabric = heroUnitFabric;
     }
 
-    public void Enter()
+    public void FormationStateIstruction()
     {
-
+        SpawnSquad();
     }
 
-    public void Exit()
+    public void ActivateService()
     {
-        Debug.Log("Exit State");
+        throw new NotImplementedException();
     }
-    public void Update()
-    {
 
+    public void UpdateService()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void DeactivateService()
+    {
+        
     }
 
     public void SpawnSquad()
@@ -42,17 +48,5 @@ public class HeroUnitSquadService : IServiceState, IFormationGameState, IBattleG
             _heroUnitSquad.Add(_heroUnitFabric.CreateHero(hero));
         }
     }
-
-    public void EnterFormationState()
-    {
-        SpawnSquad();
-        Debug.Log("EnterFormationState");
-    }
-
-    public void EnterBattleState()
-    {
-        Debug.Log("EnterBattleState");
-    }
-
 
 }

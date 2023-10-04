@@ -6,6 +6,7 @@ public class HeroesState : IBaseGameState
     private HeroPageService _heroPageService;
     private HeroSummonService _heroSummonService;
     private HeroesPanelService _heroPanelService;
+    private NavigationPagesService _navigationPagesService;
 
     [Inject]
     private HeroesState
@@ -13,17 +14,21 @@ public class HeroesState : IBaseGameState
         StateMachine menuStateMachine, 
         HeroPageService heroPageService, 
         HeroSummonService heroSummonService,
-        HeroesPanelService heroesPanelService
+        HeroesPanelService heroesPanelService,
+        NavigationPagesService navigationPagesService
     )
     {
         _menuStateMachine = menuStateMachine;
         _heroPageService = heroPageService;
         _heroSummonService = heroSummonService;
         _heroPanelService = heroesPanelService;
+        _navigationPagesService = navigationPagesService;       
     }
 
     public void Enter()
     {
+        _navigationPagesService.ActivateService();
+        _navigationPagesService.SetChangePageInstruction(ChangePage);
         _heroPageService.Enter();
     }
 
@@ -35,5 +40,10 @@ public class HeroesState : IBaseGameState
     public void Update()
     {
         throw new System.NotImplementedException();
+    }
+
+    public void ChangePage(IBaseGameState currentstate)
+    {
+        _menuStateMachine.SetState(currentstate);
     }
 }

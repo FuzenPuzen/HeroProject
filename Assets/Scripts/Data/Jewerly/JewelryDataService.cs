@@ -26,7 +26,6 @@ public class JewelryDataService
 
     public JewelryData GetJewelryData() {return _jewelryData; }
 
-
     public bool SpendDiamonds(int cost)
     {
         if (_jewelryData.DiamondsCount >= cost)
@@ -75,6 +74,7 @@ public class JewelryDataService
         Debug.Log("Свитков больше нет!!");       
         return false;
     }
+
     public void AddScrolls(int cost)
     {
         _jewelryData.ScrollsCount += cost;
@@ -82,8 +82,6 @@ public class JewelryDataService
         JewerlyChange?.Invoke();
     }
     
-    
-
     public void CreateJewerlyData()
     {
         _jewelryData = new JewelryData();

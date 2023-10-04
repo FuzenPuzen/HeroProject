@@ -7,7 +7,6 @@
 
 public interface IBaseGameState : IGameState
 {
-    
 }
 
 public interface IServiceState : IGameState
@@ -30,6 +29,15 @@ public interface IViewState
     void Enter();
     void UpdateView();
     void Exit();
+
+}
+
+
+public interface IService
+{
+    void ActivateService();
+    void UpdateService();
+    void DeactivateService();
 
 }
 

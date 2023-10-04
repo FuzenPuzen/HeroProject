@@ -1,4 +1,3 @@
-
 using Zenject;
 
 public class StartSessionState : IBaseGameState
@@ -7,19 +6,19 @@ public class StartSessionState : IBaseGameState
     private HeroUnitSquadService _heroUnitSquadService;
     private EnemyUnitSquadService _enemyUnitSquadService;
     private StateMachine _stateMachine;
-    private BattleState _battleState;
 
     [Inject]
     public StartSessionState
-        (
+    (
         HeroUnitSquadService heroUnitSquadService,
         StateMachine stateMachine,
-        BattleState battleState,
-        EnemyUnitSquadService enemyUnitSquadService)
+        FormationState formationState,
+        EnemyUnitSquadService enemyUnitSquadService
+    )
     {
         _heroUnitSquadService = heroUnitSquadService;
         _enemyUnitSquadService = enemyUnitSquadService;
-        _battleState = battleState;
+        _formationState = formationState;
         _stateMachine = stateMachine;
     }
 

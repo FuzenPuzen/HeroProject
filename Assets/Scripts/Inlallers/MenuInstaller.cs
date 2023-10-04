@@ -13,12 +13,13 @@ public class MenuInstaller : MonoInstaller
 
         Container.Bind<StateMachine>().AsSingle();
 
+        Container.Bind<NavigationPagesService>().AsSingle();
+
         Container.Bind<MenuStartState>().AsSingle();
         Container.Bind<HeroesState>().AsSingle();
         Container.Bind<RaidState>().AsSingle();
         Container.Bind<ShopState>().AsSingle();
 
-        Container.Bind<NavigationPagesService>().AsSingle();
         Container.Bind<RaidPageService>().AsSingle();
         Container.Bind<HeroPageService>().AsSingle();
         Container.Bind<ShopPageService>().AsSingle();

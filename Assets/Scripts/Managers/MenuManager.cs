@@ -2,7 +2,7 @@ using System.Reflection.Emit;
 using UnityEngine;
 using Zenject;
 
-public class GameManager : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
     private StateMachine _menuStateMachine;
     private MenuStartState _menuStartState;
@@ -22,5 +22,5 @@ public class GameManager : MonoBehaviour
         _menuStateMachine.SetState(_menuStartState);
     }
 
-        /*heroesPanelService = container.Resolve<HeroesPanelService>();*/
+    /*heroesPanelService = container.Resolve<HeroesPanelService>();*/
 }

@@ -24,16 +24,14 @@ public class FormationState : IBaseGameState
 
     public void Enter()
     {
-        _heroUnitSquadService.EnterFormationState();
-        _enemyUnitSquadService.EnterFormationState();
+        _heroUnitSquadService.FormationStateIstruction();
+        _enemyUnitSquadService.FormationStateIstruction();
         _stateMachine.SetState(_battleState);
-
     }
 
     public void Exit()
     {
-        _heroUnitSquadService.Exit();
-        _enemyUnitSquadService.Exit();
+        
     }
 
     public void Update()
