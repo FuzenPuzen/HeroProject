@@ -22,19 +22,26 @@ public class HeroesState : IBaseGameState
         _heroPageService = heroPageService;
         _heroSummonService = heroSummonService;
         _heroPanelService = heroesPanelService;
-        _navigationPagesService = navigationPagesService;       
+        _navigationPagesService = navigationPagesService;
     }
 
     public void Enter()
     {
         _navigationPagesService.ActivateService();
         _navigationPagesService.SetChangePageInstruction(ChangePage);
+
+        _heroPanelService.ActivateService();
+
+        _heroSummonService.ActivateService();
+
         _heroPageService.Enter();
     }
 
     public void Exit()
     {
         _heroPageService.Exit();
+
+        _heroPanelService.DeactivateService();
     }
 
     public void Update()

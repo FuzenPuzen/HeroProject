@@ -13,13 +13,18 @@ public class HeroSummonService
 
     [Inject]
     public HeroSummonService(HeroesDataService heroesDataService, JewelryDataService jewelryDataService)
-    {
-        heroSummonView = MonoBehaviour.FindObjectOfType<HeroSummonView>();
-        heroSummonView.Init(this);
+    {        
         _heroesDataService = heroesDataService;
         _jewelryDataService = jewelryDataService;
     }
-    
+
+    public void ActivateService()
+    {
+        heroSummonView ??= MonoBehaviour.FindObjectOfType<HeroSummonView>();
+        heroSummonView.Init(this, SummonHero);
+    }
+
+
     public void SummonHero()
     {
         _closedHerolist = _heroesDataService.GetClosedHeroList();

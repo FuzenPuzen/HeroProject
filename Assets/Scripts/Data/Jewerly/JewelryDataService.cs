@@ -22,6 +22,7 @@ public class JewelryDataService
             CreateJewerlyData();
             SaveJewerlyData();
         }
+        AddScrolls(30);
     }
 
     public JewelryData GetJewelryData() {return _jewelryData; }

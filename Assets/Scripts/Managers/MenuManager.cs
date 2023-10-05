@@ -17,8 +17,8 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
-        /*PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();*/
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
         _menuStateMachine.SetState(_menuStartState);
     }
 

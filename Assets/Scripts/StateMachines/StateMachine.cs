@@ -5,6 +5,7 @@ public class StateMachine
     public void SetState(IGameState newState)
     {
         _currentState?.Exit();
+        // добавить проверку на самого себя
 
         _currentState = newState;
         _currentState.Enter();

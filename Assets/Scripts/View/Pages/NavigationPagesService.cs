@@ -22,7 +22,6 @@ public class NavigationPagesService
     {
         _navigationPagesView = MonoBehaviour.FindObjectOfType<NavigationPagesView>();
         _navigationPagesView.Init(this);
-        Debug.Log(_heroesState);
     }
   
     public void SetChangePageInstruction(Action<IBaseGameState> changePage)
@@ -32,7 +31,6 @@ public class NavigationPagesService
 
     public void OpenHeroesPage()
     {
-        Debug.Log(_heroesState);
         _changePage?.Invoke(_heroesState);
     }
 
